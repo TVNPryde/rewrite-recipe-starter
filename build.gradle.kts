@@ -4,6 +4,9 @@ import nebula.plugin.contacts.ContactsExtension
 plugins {
     `java-library`
 
+    id("java")
+    id("org.openrewrite.rewrite") version("5.14.0")
+
     id("nebula.release") version "16.0.0"
 
     id("nebula.maven-manifest") version "18.4.0"
@@ -30,7 +33,7 @@ java {
 }
 
 // Set as appropriate for your organization
-group = "com.yourorg"
+group = "com.thanh"
 description = "Rewrite recipes."
 
 repositories {
@@ -97,6 +100,8 @@ configure<PublishingExtension> {
 
 publishing {
   repositories {
+      mavenLocal()
+      mavenCentral()
       maven {
           name = "moderne"
           url = uri("https://us-west1-maven.pkg.dev/moderne-dev/moderne-recipe")
